@@ -1,0 +1,25 @@
+[package]
+name = "rskern"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+panic = "abort" # disable stack unwinding on panic
+
+[profile.release]
+panic = "abort" # disable stack unwinding on panic
+
+[dependencies]
+bootloader = "0.9.23"
+volatile = "0.2.6"
+spin = "0.5.2"
+pic8259 = "0.10.4"
+pc-keyboard = "0.7.0"
+
+[dependencies.lazy_static]
+version = "1.0"
+features = ["spin_no_std"]
+
+[dependencies.x86_64]
+version = "0.14.11"
+features = ["abi_x86_interrupt"]
