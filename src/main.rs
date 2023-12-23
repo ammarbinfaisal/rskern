@@ -24,7 +24,8 @@ pub fn hlt_loop() -> ! {
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
     init();
-    
+    let ptr = 0xdeadbeaf as *mut u8;
+    unsafe { *ptr = 42; }
     hlt_loop()
 }
 
